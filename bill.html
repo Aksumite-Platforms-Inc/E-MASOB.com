@@ -50,10 +50,19 @@
         Main wrapper start
     ***********************************-->
     <div id="main-wrapper">
-       <!--**********************************
+               <!--**********************************
             Nav header start
         ***********************************-->
-      <?php include "includes/header.php"?>
+	  <div id="headerContainer"></div>
+
+	  <script>
+	  // Use JavaScript to load the sidebar content from an external file
+	  fetch("includes/header.html")
+		  .then(response => response.text())
+		  .then(data => {
+		  document.getElementById("headerContainer").innerHTML = data;
+		  });
+	  </script>
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -62,7 +71,17 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <?php include "includes/sidebar.php"?>
+		<div id="sidebarContainer"></div>
+
+			<script>
+			// Use JavaScript to load the sidebar content from an external file
+			fetch("includes/sidebar.html")
+				.then(response => response.text())
+				.then(data => {
+				document.getElementById("sidebarContainer").innerHTML = data;
+				});
+			</script>
+
         <!--**********************************
             Sidebar end
         ***********************************-->
